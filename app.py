@@ -35,8 +35,8 @@ def predict():
 		word=word.lower()
 		if word in hindi_galis:
 			#return render_template('result.html',prediction =[1],msg=message)
-			prediction = [1]
-			return jsonify(prediction), 200
+			# prediction = [1]
+			return jsonify({ 'response': 1 }), 200
 		word=lemmatizer.lemmatize(word)
 	
 		if word not in words.words():
@@ -63,7 +63,7 @@ def predict():
 		my_prediction=[0]
     
 	#return render_template('result.html',prediction = my_prediction,msg=message)
-	return jsonify(prediction), 200
+	return jsonify({ 'response': my_prediction[0] }), 200
 
 
 
