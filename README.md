@@ -249,8 +249,8 @@ df.head()
 ps = PorterStemmer()
 stemmed_messages = []
 for i in range(0, len(df)):
-    x = re.sub('[^a-zA-Z]', ' ', df['message'][i])
-    x = x.lower()
+    x = re.sub('[^a-zA-Z]', ' ', df['message'][i])  #keeping only alphabets
+    x = x.lower()                                   #converting everything to lowercase
     x = x.split()
     
     x = [ps.stem(word) for word in x if not word in stopwords.words('english')]
