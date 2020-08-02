@@ -1,4 +1,4 @@
-from flask import Flask,render_template,url_for,request
+from flask import Flask,render_template,url_for,request,jsonify
 import pandas as pd 
 import pickle
 import re
@@ -26,8 +26,9 @@ def predict():
 		pred1 = clf.predict(vect)
 
 	if pred1==[1]:
-		my_prediction=[2]	
-		return render_template('result.html',prediction = my_prediction,msg=message)				#return statementfor spam
+		my_prediction=[2]
+		return jsonify({ 'isspam': my_prediction[0] }), 200
+		#return render_template('result.html',prediction = my_prediction,msg=message)				#return statementfor spam
 
 	data = re.split(r'\W+', message)
 	
@@ -40,7 +41,8 @@ def predict():
 	for word in data:
 		word=word.lower()
 		if word in abusive_words:
-			return render_template('result.html',prediction =[2],msg=message)			#return statement for abusive language
+			return jsonify({ 'isspam': 2 }), 200
+			#return render_template('result.html',prediction =[2],msg=message)			#return statement for abusive language
 		word=lemmatizer.lemmatize(word)
 	
 		if word not in words.words():
@@ -62,7 +64,8 @@ def predict():
 
 
     
-	return render_template('result.html',prediction = my_prediction,msg=message)
+	return jsonify({ 'isspam': my_prediction[0] }), 200
+	#return render_template('result.html',prediction = my_prediction,msg=message)
 
 
 
