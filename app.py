@@ -26,7 +26,7 @@ def predict():
 		pred1 = clf.predict(vect)
 
 	if pred1==[1]:
-		my_prediction=[1]	
+		my_prediction=[2]	
 		return render_template('result.html',prediction = my_prediction,msg=message)				#return statementfor spam
 
 	data = re.split(r'\W+', message)
@@ -40,7 +40,7 @@ def predict():
 	for word in data:
 		word=word.lower()
 		if word in abusive_words:
-			return render_template('result.html',prediction =[1],msg=message)			#return statement for abusive language
+			return render_template('result.html',prediction =[2],msg=message)			#return statement for abusive language
 		word=lemmatizer.lemmatize(word)
 	
 		if word not in words.words():
@@ -55,7 +55,7 @@ def predict():
 			
 		if len(dicto)>3 or len(max_key)>20:
 			print('Random text or spelling mistakes')
-			my_prediction=[2]								#return value for random text/spelling mistake																					
+			my_prediction=[1]								#return value for random text/spelling mistake																					
 		else:
 			my_prediction=[0]								#return value for ham	(all okay)
 		
