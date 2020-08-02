@@ -53,7 +53,7 @@ def predict():
 	else:	
 		max_key = max(dicto, key=dicto.get)    
 			
-		if len(dicto)>5 or len(max_key)>20:
+		if len(dicto)>3 or len(max_key)>20:
 			print('Random text or spelling mistakes')
 			my_prediction=[2]								#return value for random text/spelling mistake																					
 		else:
