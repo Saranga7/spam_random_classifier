@@ -11,11 +11,11 @@
 		<div id="brandname">
 			ML App
 		</div>
-		<h2>Spam Detector For SMS Messages</h2>
+		<h2>Spam Detector</h2>
 		
 	</div>
 	</header>
-	<p style="color:blue;font-size:20;text-align: center;"><b>Results for Comment</b></p>
+	
 	<div class="results">
 
     <h3>Your input was:</h3><h2>{{msg}}</h2>
@@ -25,10 +25,13 @@
 
 		
 	{% if prediction ==[1] %}
-    <h2 style="color:red;">It's probably Spam</h2>
+    <h2 style="color:red;">It's Abusive language or Spam</h2>
     {% endif %}
 	{% if prediction== [0] %}
-	<h2 style="color:blue;">It's probably Ham</h2>
+	<h2 style="color:blue;"> It's  Ham</h2>
+	{% endif %}
+	{% if prediction== [2] %}
+	<h2 style="color:green;">It's  random text or spelling mistake</h2>
 	{% endif %}
 
 	</div>
