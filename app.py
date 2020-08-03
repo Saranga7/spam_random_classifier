@@ -20,7 +20,7 @@ def home():
 @app.route('/predict',methods=['POST'])
 def predict():
 	if request.method == 'POST':
-		message = request.get_json()['message']
+		message = request.form.to_dict()['message']
 		data = [message]
 		vect = cv.transform(data).toarray()
 		pred1 = clf.predict(vect)
