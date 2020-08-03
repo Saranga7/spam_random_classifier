@@ -32,7 +32,8 @@ def predict():
 
 	data = re.split(r'\W+', message)
 	
-	abusive_words=['motherfuckers','madarchod','behenchod','bhosra','bhosri','bhosdike','motherfucker','slut','whore','bullshit']	#sincerest aplogies 
+	abusive_words=['motherfuckers','madarchod','behenchod','bhosri','bhosdike','motherfucker','slut',
+		       'whore','bullshit','nigger','nigga']								#sincerest aplogies 
 
 	dicto={}
 	pred2=[0]	#initializaton
