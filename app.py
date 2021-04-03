@@ -65,8 +65,8 @@ def predict():
 
 
     
-	return jsonify({ 'isspam': my_prediction[0] }), 200
-	#return render_template('result.html',prediction = my_prediction,msg=message)
+	#return jsonify({ 'isspam': my_prediction[0] }), 200
+	return render_template('result.html',prediction = my_prediction,msg=message)
 
 
 
